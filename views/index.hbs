@@ -1,0 +1,43 @@
+{{!-- header --}}
+<div class="row col-12">
+  <form action="/filter" method="post">
+    <div class="input-group" style="float:left ;">
+      <div class="form-outline">
+        <input value="search" type="search" name="value" id="form1" class="form-control" />
+      </div>
+      <button type="submit">submit</button>
+  </form>
+</div>
+<br>
+<div class="mt-5">
+ {{#if time}}
+    <h6 style="color:green ;">Data Fetch time :{{time}}_milli seconds</h6>
+{{/if}}
+{{#if notfoundEtrr}}
+   <h6 style="color:red ;">Not Found any Data</h6>
+{{/if}}
+</div>
+{{!-- header_end --}}
+<div class="container-fluid" style="text-align:center ;">
+  <div class="row">
+    {{#each movieData}}
+
+    <div class="card  col-md-4 col-12" style="margin:1em ; width:200px ;">
+      <img class="card-img-top"
+        src="https://media.istockphoto.com/vectors/movie-time-vector-illustration-cinema-poster-concept-on-red-round-vector-id911590226?k=20&m=911590226&s=612x612&w=0&h=HlJtSKF-fLsKFy1QJ-EVnxXkktBKNS-3jUQPXsSasYs="
+        alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-text"><span style="color:rgba(0, 0, 0, 0.527);">year:</span> {{this.year}}</p>
+        <p class="card-text"><span style="color:rgba(0, 0, 0, 0.527);">actor:</span> {{this.actor}}</p>
+        <p class="card-text"><span style="color:rgba(0, 0, 0, 0.527);">rating:</span> {{this.rating}}</p>
+        <p class="card-text"><span style="color:rgba(0, 0, 0, 0.527);">category:</span> {{this.category}}</p>
+        <p class="card-text"><span style="color:rgba(0, 0, 0, 0.527);">director:</span> {{this.director}}</p>
+        <p class="card-text"><span style="color:rgba(0, 0, 0, 0.527);">language:</span> {{this.Langauge}}</p>
+
+      </div>
+    </div>
+
+    {{/each}}
+  </div>
+</div>
